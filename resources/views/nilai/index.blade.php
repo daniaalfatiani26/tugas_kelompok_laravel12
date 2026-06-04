@@ -69,7 +69,8 @@
                                     <th>Nama</th>
                                     <th>Mata Kuliah</th>
                                     <th>Nilai</th>
-                                    <th class="text-center">Aksi</th> </tr>
+                                    <th class="text-center">Aksi</th>
+                                </tr>
                             </thead>
                             <tbody>
                                 @forelse($semuaNilai as $index => $data)
@@ -84,10 +85,15 @@
                                             </span>
                                         </td>
                                         <td class="text-center">
-                                            <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data nilai ini?')">
-                                                @csrf
-                                                @method('DELETE') <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                            </form>
+                                            <div class="d-flex gap-1 justify-content-center">
+                                                <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-warning btn-sm text-white">Edit</a>
+                                                
+                                                <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data nilai ini?')">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @empty
