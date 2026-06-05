@@ -19,3 +19,6 @@ Route::get('/nilai/{id}/edit', [NilaiController::class, 'edit'])->name('nilai.ed
 
 // Route untuk memproses perubahan data ke database
 Route::put('/nilai/{id}', [NilaiController::class, 'update'])->name('nilai.update');
+use App\Http\Controllers\MahasiswaController; // Tambahkan ini di paling atas
+
+Route::get('/halaman1', [MahasiswaController::class, 'index']);
