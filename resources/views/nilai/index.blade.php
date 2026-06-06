@@ -21,8 +21,8 @@
     <div class="row">
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
-                    <h5 class="card-title mb-0">Input Nilai Mahasiswa</h5>
+                <div class="card-header bg-warning text-dark">
+                     <h5 class="card-title mb-0">Input Nilai Mahasiswa</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('nilai.store') }}" method="POST">
@@ -46,7 +46,7 @@
                         </div>
                         
                         <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary flex-grow-1">Simpan Data</button>
+                            <button type="submit" class="btn btn-warning flex-grow-1 text-dark">Simpan Data</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
@@ -56,7 +56,7 @@
 
         <div class="col-md-8">
             <div class="card shadow-sm">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header bg-warning text-dark">
                     <h5 class="card-title mb-0">Laporan Nilai Mahasiswa</h5>
                 </div>
                 <div class="card-body">
