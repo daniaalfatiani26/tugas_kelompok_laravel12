@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-warning text-dark">
                     <h5 class="card-title mb-0">Input Nilai Mahasiswa</h5>
                 </div>
                 <div class="card-body">
@@ -46,7 +46,7 @@
                         </div>
                         
                         <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-primary flex-grow-1">Simpan Data</button>
+                            <button type="submit" class="btn btn-warning text-dark flex-grow-1">Simpan Data</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
@@ -56,7 +56,7 @@
 
         <div class="col-md-8">
             <div class="card shadow-sm">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header bg-warning text-dark">
                     <h5 class="card-title mb-0">Laporan Nilai Mahasiswa</h5>
                 </div>
                 <div class="card-body">
@@ -86,7 +86,7 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex gap-1 justify-content-center">
-                                                <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-warning btn-sm text-white">Edit</a>
+                                                <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                                 
                                                 <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data nilai ini?')">
                                                     @csrf
