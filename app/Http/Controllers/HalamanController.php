@@ -8,11 +8,14 @@ use Illuminate\Support\Facades\DB;
 class HalamanController extends Controller
 {
     public function index() 
-    {
-        // Mengambil semua data dari tabel 'nilais'
-        $semuaNilai = DB::table('nilais')->get(); 
-        
-        // Mengirim data tersebut ke view 'halaman3'
-        return view('halaman3', compact('semuaNilai')); 
-    }
+{
+    $semuaNilai = DB::table('nilais')->get(); 
+    
+    // Logika perhitungan otomatis
+    $totalSks = $semuaNilai->count() * 3; // Asumsi 1 matkul = 3 SKS
+    $totalNilai = $semuaNilai->sum('nilai');
+    $ipk = $semuaNilai->count() > 0 ? number_format($totalNilai / $semuaNilai->count() / 25, 2) : 0;
+    
+    return view('halaman3', compact('semuaNilai', 'totalSks', 'ipk')); 
+}
 }

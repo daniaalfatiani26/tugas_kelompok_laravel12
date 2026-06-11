@@ -116,7 +116,7 @@
                 <strong>Nama:</strong> DANIA ALFATIANI WIRADIREDJA<br>
                 <strong>NIM:</strong> F1B250005<br>
                 <strong>Jurusan:</strong> Sistem Informasi<br>
-                <strong>IPK Kumulatif: <span style="color: #3174b0; font-size: 1.1em;">3.75</span></strong>
+               <strong>IPK Kumulatif: <span style="color: #3174b0; font-size: 1.1em;">{{ $ipk }}</span></strong>
             </div>
         </div>
     </div>
@@ -184,13 +184,15 @@
                         <td>3.00</td>
                     </tr>
                 </tbody> -->
-                <tbody>
+               <tbody>
                     @foreach($semuaNilai as $data)
-                        <tr>
-                            <td>{{ $data->nim }}</td>
-                            <td>{{ $data->mata_kuliah }}</td>
-                            <td>{{ $data->nilai }}</td>
-                        </tr>
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $data->nim }}</td>
+                        <td>{{ $data->mata_kuliah }}</td>
+                        <td>3</td> <td>{{ $data->nilai >= 85 ? 'A' : 'B' }}</td> <td>{{ $data->nilai }}</td>
+                        <td>{{ $ipk }}</td> <td>{{ $ipk }}</td>
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
