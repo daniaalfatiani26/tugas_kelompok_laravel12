@@ -140,7 +140,7 @@
                         <th>IPK Kumulatif</th>
                     </tr>
                 </thead>
-                <tbody>
+                <!-- <tbody>
                     <tr>
                         <td>1</td>
                         <td>S1244108</td>
@@ -183,6 +183,15 @@
                         <td>B</td>
                         <td>3.00</td>
                     </tr>
+                </tbody> -->
+                <tbody>
+                    @foreach($semuaNilai as $data)
+                        <tr>
+                            <td>{{ $data->nim }}</td>
+                            <td>{{ $data->mata_kuliah }}</td>
+                            <td>{{ $data->nilai }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
