@@ -7,12 +7,14 @@ use Illuminate\Support\Facades\DB;
 
 class NilaiController extends Controller
 {
+    // 1. Menampilkan Halaman Utama (Tabel Laporan & Form Input)
     public function index()
     {
         $semuaNilai = DB::table('nilais')->get();
         return view('nilai.index', compact('semuaNilai'));
     }
 
+    // 2. Memproses Penyimpanan Data Baru
     public function store(Request $request)
     {
         $request->validate([
@@ -34,23 +36,14 @@ class NilaiController extends Controller
         return redirect()->route('nilai.index')->with('sukses', 'Data nilai berhasil ditambahkan!');
     }
 
-    public function destroy($id)
-    {
-        DB::table('nilais')->where('id', $id)->delete();
-        return redirect()->route('nilai.index')->with('sukses', 'Data nilai berhasil dihapus!');
-    }
-
-    // FUNGSI BARU 1: Menampilkan halaman edit & mengambil data spesifik
+    // 3. Menampilkan Halaman Form Edit
     public function edit($id)
     {
-        // Mengambil satu data yang mau diedit berdasarkan ID-nya
         $nilai = DB::table('nilais')->where('id', $id)->first();
-        
-        // Mengarahkan ke file edit.blade.php sambil membawa data lama tersebut
         return view('nilai.edit', compact('nilai'));
     }
 
-    // FUNGSI BARU 2: Menyimpan hasil editan ke database
+    // 4. Memproses Perubahan Data (Update)
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -60,7 +53,6 @@ class NilaiController extends Controller
             'nilai' => 'required|numeric',
         ]);
 
-        // Mengupdate data di database sesuai ID-nya
         DB::table('nilais')->where('id', $id)->update([
             'nim' => $request->nim,
             'nama' => $request->nama,
@@ -70,5 +62,12 @@ class NilaiController extends Controller
         ]);
 
         return redirect()->route('nilai.index')->with('sukses', 'Data nilai berhasil diubah!');
+    }
+
+    // 5. Memproses Penghapusan Data
+    public function destroy($id)
+    {
+        DB::table('nilais')->where('id', $id)->delete();
+        return redirect()->route('nilai.index')->with('sukses', 'Data nilai berhasil dihapus!');
     }
 }

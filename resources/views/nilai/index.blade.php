@@ -22,12 +22,11 @@
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
                 <div class="card-header bg-warning text-dark">
-                     <h5 class="card-title mb-0">Input Nilai Mahasiswa</h5>
+                    <h5 class="card-title mb-0">Input Nilai Mahasiswa</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('nilai.store') }}" method="POST">
                         @csrf 
-                        
                         <div class="mb-3">
                             <label class="form-label">NIM</label>
                             <input type="text" name="nim" class="form-control" placeholder="Contoh: 22010101" required>
@@ -44,9 +43,8 @@
                             <label class="form-label">Nilai Angka</label>
                             <input type="number" name="nilai" class="form-control" placeholder="0 - 100" min="0" max="100" required>
                         </div>
-                        
                         <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-warning flex-grow-1 text-dark">Simpan Data</button>
+                            <button type="submit" class="btn btn-warning text-dark flex-grow-1">Simpan Data</button>
                             <button type="reset" class="btn btn-secondary">Reset</button>
                         </div>
                     </form>
@@ -86,8 +84,7 @@
                                         </td>
                                         <td class="text-center">
                                             <div class="d-flex gap-1 justify-content-center">
-                                                <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-warning btn-sm text-white">Edit</a>
-                                                
+                                                <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                                 <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data nilai ini?')">
                                                     @csrf
                                                     @method('DELETE')
@@ -98,11 +95,15 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="text-center text-muted py-3">Belum ada data nilai. Silakan isi form di sebelah kiri.</td>
+                                        <td colspan="6" class="text-center text-muted py-3">Belum ada data nilai.</td>
                                     </tr>
                                 @endforelse
                             </tbody>
                         </table>
+                    </div>
+                    
+                    <div class="mt-3">
+                        <a href="{{ url('/halaman3') }}" class="btn btn-warning w-100 text-dark fw-bold">Berikutnya</a>
                     </div>
                 </div>
             </div>
