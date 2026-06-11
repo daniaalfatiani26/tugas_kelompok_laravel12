@@ -1,0 +1,6 @@
+/vendor
+/node_modules
+.env
+/public/build
+/bootstrap/cache/*
+/storage/*.key

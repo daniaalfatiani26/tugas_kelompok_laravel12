@@ -70,35 +70,36 @@
                                     <th class="text-center">Aksi</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @forelse($semuaNilai as $index => $data)
-                                    <tr>
-                                        <td>{{ $index + 1 }}</td>
-                                        <td>{{ $data->nim }}</td>
-                                        <td>{{ $data->nama }}</td>
-                                        <td>{{ $data->mata_kuliah }}</td>
-                                        <td>
-                                            <span class="badge {{ $data->nilai >= 75 ? 'bg-success' : 'bg-danger' }}">
-                                                {{ $data->nilai }}
-                                            </span>
-                                        </td>
-                                        <td class="text-center">
-                                            <div class="d-flex gap-1 justify-content-center">
-                                                <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-primary btn-sm">Edit</a>
-                                                <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data nilai ini?')">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                                </form>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                @empty
-                                    <tr>
-                                        <td colspan="6" class="text-center text-muted py-3">Belum ada data nilai.</td>
-                                    </tr>
-                                @endforelse
-                            </tbody>
+                        <tbody>
+                            @forelse($semuaNilai as $index => $data)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $data->nim }}</td>
+                                <td>{{ $data->nama }}</td>
+                                <td>{{ $data->mata_kuliah }}</td>
+                                <td>
+                                    <span class="badge {{ $data->nilai >= 75 ? 'bg-success' : 'bg-danger' }}">
+                                        {{ $data->nilai }}
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    <div class="d-flex gap-1 justify-content-center">
+                                        <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-primary btn-sm">Edit</a>
+                                        
+                                        <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                            @empty
+                            <tr>
+                                <td colspan="6" class="text-center">Belum ada data nilai.</td>
+                            </tr>
+                            @endforelse
+                        </tbody>
                         </table>
                     </div>
                     

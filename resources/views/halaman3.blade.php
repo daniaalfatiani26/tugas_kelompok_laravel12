@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIAKAD Transkrip - Universitas Teknologi Nusantara</title>
+    <title>SIAKAD Transkrip - Universitas Al-Ghifari</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -102,6 +102,16 @@
     </style>
 </head>
 <body>
+    <!-- <nav class="mb-4">
+    <a href="/halaman1" class="btn btn-outline-primary">Halaman 1</a>
+    <a href="/nilai" class="btn btn-outline-primary">Halaman Nilai</a>
+    <a href="/halaman3" class="btn btn-primary">Halaman 3 (Ini Sekarang)</a>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Ini Halaman 3</h1>
+        <p>Selamat, lo udah berhasil bikin navigasi sinkron!</p>
+    </div> -->
 
     <h2 class="main-header">Universitas Al-Ghifari - SIAKAD Mahasiswa</h2>
 
