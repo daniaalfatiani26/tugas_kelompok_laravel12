@@ -198,7 +198,7 @@
     </div>
 
     <div class="footer">
-        &copy; 2026 Universitas Teknologi Nusantara. Tugas Kelompok Kelompok Kita.
+        &copy; 2026 Universitas Al-Ghifari. Tugas Kelompok 3.
     </div>
 
 </body>
