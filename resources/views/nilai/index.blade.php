@@ -11,11 +11,18 @@
 <div class="container mt-5">
     <h2 class="text-center mb-4">Sistem Informasi Akademik - Halaman Nilai</h2>
 
-    @if(session('sukses'))
+   @if(session('sukses'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session('sukses') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+    @endif
+
+    @if(session('gagal'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('gagal') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
     @endif
 
     <div class="row">
@@ -83,7 +90,8 @@
                                     </span>
                                 </td>
                                 <td class="text-center">
-                                    <div class="d-flex gap-1 justify-content-center">
+                                <div class="d-flex gap-1 justify-content-center">
+                                    @if(auth()->user()->role === 'admin')
                                         <a href="{{ route('nilai.edit', $data->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                         
                                         <form action="{{ route('nilai.destroy', $data->id) }}" method="POST" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
@@ -91,8 +99,11 @@
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
                                         </form>
+                                    @else
+                                        <span class="badge bg-secondary">Read Only</span>
+                                    @endif
                                     </div>
-                                </td>
+                            </td>
                             </tr>
                             @empty
                             <tr>
