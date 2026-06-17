@@ -33,7 +33,7 @@
         }
 
         .card-header {
-            background-color: #ffcc00; /* Warna kuning selaras temanmu */
+            background-color: #ffcc00;
             color: #333;
             padding: 15px 20px;
             font-weight: bold;
@@ -44,13 +44,13 @@
             padding: 20px;
         }
 
-        /* Styling Profil */
         .profile-info {
             display: grid;
             grid-template-columns: 120px 1fr;
             gap: 10px;
             align-items: center;
         }
+
         .profile-pic {
             width: 100px;
             height: 100px;
@@ -63,34 +63,25 @@
             color: #555;
         }
 
-        /* Styling Tabel */
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 10px;
         }
+
         th, td {
             text-align: left;
             padding: 12px;
             border-bottom: 1px solid #ddd;
         }
+
         th {
-            background-color: #f8f9fa; /* Abu-abu terang */
+            background-color: #f8f9fa;
             color: #333;
         }
+
         tr:nth-child(even) {
             background-color: #fcfcfc;
-        }
-
-        .details-btn {
-            background-color: #3174b0;
-            color: white;
-            padding: 6px 12px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 0.9em;
         }
 
         .footer {
@@ -99,43 +90,37 @@
             color: #777;
             font-size: 0.9em;
         }
+
+        .center {
+            text-align: center;
+        }
+
+        .label-profile {
+            display: inline-block;
+            width: 80px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <!-- <nav class="mb-4">
-    <a href="/halaman1" class="btn btn-outline-primary">Halaman 1</a>
-    <a href="/nilai" class="btn btn-outline-primary">Halaman Nilai</a>
-    <a href="/halaman3" class="btn btn-primary">Halaman 3 (Ini Sekarang)</a>
-    </nav>
-
-    <div class="container mt-4">
-        <h1>Ini Halaman 3</h1>
-        <p>Selamat, lo udah berhasil bikin navigasi sinkron!</p>
-    </div> -->
 
     <h2 class="main-header">Universitas Al-Ghifari - SIAKAD Mahasiswa</h2>
 
-    <!-- Card 1: Profil Mahasiswa -->
     <div class="card">
-        <div class="card-header">
-            👤 Informasi Profil Mahasiswa
-        </div>
+        <div class="card-header">👤 Informasi Profil Mahasiswa</div>
         <div class="card-body profile-info">
             <div class="profile-pic">👤</div>
             <div>
-                <strong>Nama:</strong> DANIA ALFATIANI WIRADIREDJA<br>
-                <strong>NIM:</strong> F1B250005<br>
-                <strong>Jurusan:</strong> Sistem Informasi<br>
-               <strong>IPK Kumulatif: <span style="color: #3174b0; font-size: 1.1em;">{{ $ipk }}</span></strong>
+                <strong><span class="label-profile">Nama</span> : DANIA ALFATIANI WIRADIREDJA</strong><br>
+                <strong><span class="label-profile">NIM</span> : F1B250005</strong><br>
+                <strong><span class="label-profile">Jurusan</span> : Sistem Informasi</strong><br>
+                <strong><span class="label-profile">IPK</span> : <span style="color: #3174b0;">{{ $ipk }}</span></strong>
             </div>
         </div>
     </div>
 
-    <!-- Card 3: Kartu Hasil Studi (KHS) -->
     <div class="card">
-        <div class="card-header">
-            Kartu Hasil Studi (KHS) Semester Ganjil
-        </div>
+        <div class="card-header">Kartu Hasil Studi (KHS) Semester Ganjil</div>
         <div class="card-body">
             <table>
                 <thead>
@@ -143,65 +128,20 @@
                         <th>No</th>
                         <th>Kode MK</th>
                         <th>Nama Mata Kuliah</th>
-                        <th>SKS</th>
-                        <th>Nilai Huruf</th>
-                        <th>Nilai Angka</th>
-                        <th>IPS</th>
-                        <th>IPK Kumulatif</th>
+                        <th class="center">SKS</th>
+                        <th class="center">Nilai Huruf</th>
+                        <th class="center">Nilai Angka</th>
                     </tr>
                 </thead>
-                <!-- <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>S1244108</td>
-                        <td>Bahasa Indonesia</td>
-                        <td>2</td>
-                        <td>A</td>
-                        <td>4.00</td>
-                        <td rowspan="3" style="vertical-align: middle; text-align: center; font-weight: bold; font-size: 1.2em; color: #3174b0;">3.80</td>
-                        <td rowspan="3" style="vertical-align: middle; text-align: center; font-weight: bold; font-size: 1.2em;">3.75</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>S1244106</td>
-                        <td>Algroritma $ Struktur Data</td>
-                        <td>4</td>
-                        <td>A</td>
-                        <td>4.00</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>S1244105</td>
-                        <td>Manajement Bisnis</td>
-                        <td>3</td>
-                        <td>A</td>
-                        <td>3.00</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>S1244103</td>
-                        <td>Matematika Diskrit</td>
-                        <td>3</td>
-                        <td>A</td>
-                        <td>3.00</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>S1244101</td>
-                        <td>Wawasan Teknologi Informasi</td>
-                        <td>2</td>
-                        <td>B</td>
-                        <td>3.00</td>
-                    </tr>
-                </tbody> -->
-               <tbody>
+                <tbody>
                     @foreach($semuaNilai as $data)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $data->nim }}</td>
                         <td>{{ $data->mata_kuliah }}</td>
-                        <td>3</td> <td>{{ $data->nilai >= 85 ? 'A' : 'B' }}</td> <td>{{ $data->nilai }}</td>
-                        <td>{{ $ipk }}</td> <td>{{ $ipk }}</td>
+                        <td class="center">3</td>
+                        <td class="center">{{ $data->nilai >= 85 ? 'A' : 'B' }}</td>
+                        <td class="center">{{ $data->nilai }}</td>
                     </tr>
                     @endforeach
                 </tbody>

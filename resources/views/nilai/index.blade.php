@@ -25,7 +25,9 @@
             </div>
     @endif
 
-    <div class="row">
+<div class="row">
+    {{-- FORM INPUT (Hanya untuk Admin) --}}
+    @if(auth()->user()->role === 'admin')
         <div class="col-md-4 mb-4">
             <div class="card shadow-sm">
                 <div class="card-header bg-warning text-dark">
@@ -33,37 +35,40 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('nilai.store') }}" method="POST">
-                        @csrf 
-                        <div class="mb-3">
-                            <label class="form-label">NIM</label>
-                            <input type="text" name="nim" class="form-control" placeholder="Contoh: 22010101" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nama Mahasiswa</label>
-                            <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Mata Kuliah</label>
-                            <input type="text" name="mata_kuliah" class="form-control" placeholder="Contoh: Arsitektur Komputer" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nilai Angka</label>
-                            <input type="number" name="nilai" class="form-control" placeholder="0 - 100" min="0" max="100" required>
-                        </div>
-                        <div class="d-flex gap-2">
-                            <button type="submit" class="btn btn-warning text-dark flex-grow-1">Simpan Data</button>
-                            <button type="reset" class="btn btn-secondary">Reset</button>
-                        </div>
-                    </form>
+                    @csrf 
+                    <div class="mb-3">
+                        <label class="form-label">NIM</label>
+                        <input type="text" name="nim" class="form-control" placeholder="Contoh: 22010101" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nama Mahasiswa</label>
+                        <input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mata Kuliah</label>
+                        <input type="text" name="mata_kuliah" class="form-control" placeholder="Contoh: Arsitektur Komputer" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nilai Angka</label>
+                        <input type="number" name="nilai" class="form-control" placeholder="0 - 100" min="0" max="100" required>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning text-dark flex-grow-1">Simpan Data</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </div>
+                </form>
                 </div>
             </div>
         </div>
+    @endif
 
-        <div class="col-md-8">
-            <div class="card shadow-sm">
-                <div class="card-header bg-warning text-dark">
-                    <h5 class="card-title mb-0">Laporan Nilai Mahasiswa</h5>
-                </div>
+    {{-- TABEL LAPORAN (Selalu tampil) --}}
+    <div class="{{ auth()->user()->role === 'admin' ? 'col-md-8' : 'col-md-12' }}">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning text-dark">
+                <h5 class="card-title mb-0">Laporan Nilai Mahasiswa</h5>
+            </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover align-middle">
