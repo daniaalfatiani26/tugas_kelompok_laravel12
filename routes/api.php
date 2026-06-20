@@ -4,5 +4,5 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NilaiController;
 
 // Route API
-Route::get('/nilai', [NilaiController::class, 'indexApi']);
-Route::post('/nilai', [NilaiController::class, 'storeApi']);
+Route::get('/nilais', [NilaiController::class, 'indexApi']);
+Route::post('/nilais', [NilaiController::class, 'storeApi']);
