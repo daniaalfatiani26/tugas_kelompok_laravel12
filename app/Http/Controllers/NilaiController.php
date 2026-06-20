@@ -58,4 +58,29 @@ class NilaiController extends Controller
         Nilai::findOrFail($id)->delete();
         return redirect()->route('nilai.index')->with('sukses', 'Data dihapus!');
     }
+
+    public function indexApi() {
+        $semuaNilai = Nilai::all();
+        return response()->json([
+            'status' => 'success',
+            'data' => $semuaNilai
+        ], 200);
+    }
+
+    public function storeApi(Request $request) {
+        $request->validate([
+            'nim' => 'required',
+            'nama' => 'required',
+            'mata_kuliah' => 'required',
+            'nilai' => 'required|numeric'
+        ]);
+
+        $nilai = Nilai::create($request->all());
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data tersimpan!',
+            'data' => $nilai
+        ], 201);
+    }
 }
