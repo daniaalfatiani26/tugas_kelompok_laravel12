@@ -83,4 +83,32 @@ class NilaiController extends Controller
             'data' => $nilai
         ], 201);
     }
+
+    public function updateApi(Request $request, $id) {
+        $request->validate([
+            'nim' => 'required',
+            'nama' => 'required',
+            'mata_kuliah' => 'required',
+            'nilai' => 'required|numeric'
+        ]);
+
+        $nilai = Nilai::findOrFail($id);
+        $nilai->update($request->all());
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data berhasil diupdate!',
+            'data' => $nilai
+        ], 200);
+    }
+
+    public function destroyApi($id) {
+        $nilai = Nilai::findOrFail($id);
+        $nilai->delete();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data berhasil dihapus!'
+        ], 200);
+    }
 }
